@@ -1,4 +1,4 @@
-# gcp-golden-path-app
+# ecommerce-product-service
 
 Application repository for the GCP Golden Path.
 
@@ -13,7 +13,7 @@ This repo owns:
 
 Terraform, Helm, ArgoCD, monitoring, and environment configuration live in the deployment repo:
 
-Repository: `ashequrrasul/gcp-golden-path-deploy`
+Repository: `ashequrrasul/gcp-golden-path-platform`
 
 ## Required GitHub Settings
 
@@ -41,6 +41,6 @@ push to main
 -> Docker build
 -> Trivy image scan
 -> push image to Artifact Registry
--> update image tag in gcp-golden-path-deploy
+-> update image tag in gcp-golden-path-platform
 -> ArgoCD syncs deployment repo to GKE
 ```

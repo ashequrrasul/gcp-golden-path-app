@@ -12,7 +12,7 @@ from starlette.responses import Response
 
 
 class Settings(BaseSettings):
-    service_name: str = "golden-path-microservice"
+    service_name: str = "product-service"
     environment: str = "dev"
     database_url: str | None = None
     database_host: str | None = None

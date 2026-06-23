@@ -11,16 +11,16 @@ permissions:
   security-events: write
 
 concurrency:
-  group: golden-path-app-${{ github.ref }}
+  group: ecommerce-product-service-${{ github.ref }}
   cancel-in-progress: true
 
 env:
   PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
   REGION: us-central1
   REPOSITORY: golden-path
-  IMAGE_NAME: golden-path-microservice
-  DEPLOY_REPO: ashequrrasul/gcp-golden-path-deploy
-  DEPLOY_VALUES_FILE: helm/microservice/values.yaml
+  IMAGE_NAME: product-service
+  DEPLOY_REPO: ashequrrasul/gcp-golden-path-platform
+  DEPLOY_VALUES_FILE: apps/product-service/values.yaml
 
 jobs:
   test-build-scan-publish:
