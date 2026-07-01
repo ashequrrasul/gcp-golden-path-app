@@ -4,6 +4,7 @@ import time
 
 from fastapi import FastAPI, HTTPException, status
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
+from psycopg.conninfo import make_conninfo
 from psycopg.rows import dict_row
 import psycopg
 from pydantic import BaseModel, EmailStr, Field
@@ -26,9 +27,12 @@ class Settings(BaseSettings):
         if self.database_url:
             return self.database_url
         if self.database_host and self.database_password:
-            return (
-                f"postgresql://{self.database_user}:{self.database_password}"
-                f"@{self.database_host}:{self.database_port}/{self.database_name}"
+            return make_conninfo(
+                host=self.database_host,
+                port=self.database_port,
+                dbname=self.database_name,
+                user=self.database_user,
+                password=self.database_password,
             )
         return None
 
